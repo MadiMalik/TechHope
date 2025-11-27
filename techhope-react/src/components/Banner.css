@@ -1,0 +1,363 @@
+:root {
+  /* palette pulled from your warm theme but on a cleaner white page */
+  --banner-bg: #fbf8f3;
+  --banner-surface: #ffffff;
+  --banner-text-main: #2e1206;
+  --banner-text-soft: #6f7674;
+
+  --accent-primary: #ce8538;      /* CE8538 */
+  --accent-primary-deep: #b25518; /* B25518 */
+  --accent-line: #e3d5be;         /* light divider */
+
+  --nav-height: 72px;
+
+  /* soft vertical-oval mask for the hero image */
+  --banner-mask: radial-gradient(
+    120% 160% at 40% 45%,
+    #000 45%,
+    transparent 72%
+  );
+}
+
+/* ROOT LAYOUT */
+
+.banner {
+  position: relative;
+  min-height: 100vh;
+  background: var(--banner-bg);
+  color: var(--banner-text-main);
+  padding: 1.4rem 7vw 3.4rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAVBAR */
+
+.banner__nav {
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.banner__nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.banner__logo-mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner__logo-mark img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.banner__brand-name {
+  font-size: 0.9rem;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+}
+
+.banner__nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+}
+
+.banner__nav-link {
+  position: relative;
+  color: var(--banner-text-soft);
+  font-weight: 500;
+}
+
+.banner__nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.35rem;
+  width: 0;
+  height: 2px;
+  background: var(--accent-primary-deep);
+  transition: width 0.18s ease-out;
+}
+
+.banner__nav-link:hover::after {
+  width: 100%;
+}
+
+.banner__nav-cta {
+  padding: 0.38rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(178, 85, 24, 0.7);
+  color: var(--accent-primary-deep);
+  background: rgba(178, 85, 24, 0.06);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  transition: background 0.2s ease-out, box-shadow 0.2s ease-out,
+    transform 0.2s ease-out;
+}
+
+.banner__nav-cta:hover {
+  transform: translateY(-1px);
+  background: rgba(178, 85, 24, 0.12);
+  box-shadow: 0 12px 28px rgba(178, 85, 24, 0.35);
+}
+
+/* HERO – IMAGE + TEXT */
+
+.banner__hero {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+  align-items: center;
+  column-gap: 6vw;
+  max-width: 1180px;
+  margin: 2.8rem auto 0;
+}
+
+/* left: silhouette-style hero image */
+
+/* LEFT: HERO IMAGE WITH SOFT, SYMBOLIC SHAPE */
+
+.banner__hero-image {
+  justify-self: center;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 3 / 4;
+  position: relative;
+  overflow: visible; /* let the soft glow bleed out */
+}
+
+/* glowing “hope” aura behind the image */
+.banner__hero-image::before {
+  content: "";
+  position: absolute;
+  inset: -28px -36px -40px;
+  background:
+    radial-gradient(180% 150% at 50% 0%,
+      rgba(206, 133, 56, 0.38),
+      transparent 55%)
+    ,
+    radial-gradient(140% 200% at 50% 100%,
+      rgba(46, 18, 6, 0.45),
+      transparent 65%);
+  filter: blur(24px);
+  opacity: 0.85;
+  z-index: -1;
+}
+
+/* the photo itself */
+.banner__image {
+  position: relative;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+
+  /* soft “lantern” / arch shape with feathered edges */
+  -webkit-mask-image: radial-gradient(
+      140% 190% at 50% 0%,
+      #000 35%,
+      rgba(0, 0, 0, 0.86) 55%,
+      transparent 88%
+    );
+  mask-image: radial-gradient(
+      140% 190% at 50% 0%,
+      #000 35%,
+      rgba(0, 0, 0, 0.86) 55%,
+      transparent 88%
+    );
+
+  border-radius: 260px 260px 54px 54px; /* arch feeling, but softened by mask */
+  overflow: hidden;
+
+  /* gentle floating animation */
+  animation: heroFloat 24s ease-in-out infinite alternate;
+  transform-origin: 50% 80%;
+  filter: saturate(1.05) contrast(1.03);
+  box-shadow:
+    0 34px 80px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+/* subtle “breathe” on hover */
+.banner__hero-image:hover .banner__image {
+  animation-duration: 18s;
+  transform: translate3d(0, -4px, 0) scale(1.03);
+  box-shadow:
+    0 40px 90px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.32);
+}
+
+/* right: text block */
+
+.banner__hero-copy {
+  max-width: 520px;
+  justify-self: flex-start;
+}
+
+.banner__eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--banner-text-soft);
+  margin-bottom: 0.9rem;
+}
+
+.banner__title {
+  margin: 0 0 1.3rem;
+}
+
+.banner__title-script {
+  display: block;
+  font-size: 0.95rem;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--banner-text-soft);
+  margin-bottom: 0.4rem;
+}
+
+.banner__title-main {
+  display: block;
+  font-size: clamp(2.4rem, 3.2vw + 1rem, 3.3rem);
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.banner__subtitle {
+  font-size: 0.95rem;
+  color: var(--banner-text-soft);
+  line-height: 1.8;
+  margin-bottom: 1.7rem;
+}
+
+.banner__subtitle-strong {
+  color: var(--banner-text-main);
+  font-weight: 500;
+}
+
+/* buttons */
+
+.banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-bottom: 1.2rem;
+}
+
+.banner__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.7rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out,
+    background 0.2s ease-out, color 0.2s ease-out;
+}
+
+.banner__btn-primary {
+  background: linear-gradient(
+    115deg,
+    var(--accent-primary-deep),
+    var(--accent-primary)
+  );
+  color: #ffffff;
+  box-shadow: 0 18px 40px rgba(178, 85, 24, 0.55);
+}
+
+.banner__btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 48px rgba(178, 85, 24, 0.6);
+}
+
+.banner__btn-ghost {
+  border-color: var(--accent-line);
+  background: #ffffff;
+  color: var(--banner-text-soft);
+}
+
+.banner__btn-ghost:hover {
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.06);
+}
+
+.banner__note {
+  font-size: 0.78rem;
+  color: var(--banner-text-soft);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 960px) {
+  .banner {
+    padding-inline: 5vw;
+  }
+
+  .banner__hero {
+    grid-template-columns: 1fr;
+    row-gap: 2.4rem;
+    margin-top: 2.2rem;
+  }
+
+  .banner__hero-image {
+    order: 1;
+    max-width: 360px;
+  }
+
+  .banner__hero-copy {
+    order: 2;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 820px) {
+  .banner__nav-right {
+    display: none;
+  }
+
+  .banner__nav {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .banner {
+    padding-inline: 1.6rem;
+  }
+
+  .banner__title-main {
+    font-size: 2.2rem;
+    letter-spacing: 0.2em;
+  }
+
+  .banner__hero-image {
+    max-width: 300px;
+  }
+}
+

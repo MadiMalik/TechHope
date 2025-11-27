@@ -1,0 +1,238 @@
+/* Section wrapper */
+.context {
+  background: radial-gradient(
+      160% 220% at 0% 0%,
+      rgba(206, 133, 56, 0.08),
+      transparent 52%
+    ),
+    var(--banner-bg);
+  padding: 4rem 7vw 4.5rem;
+  color: var(--banner-text-main);
+}
+
+.context__inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* Header */
+
+.context__header {
+  max-width: 640px;
+  margin-bottom: 2.6rem;
+}
+
+.context__eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--banner-text-soft);
+  margin-bottom: 0.7rem;
+}
+
+.context__title {
+  font-size: clamp(1.7rem, 1.2rem + 1.4vw, 2.1rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+
+.context__lede {
+  font-size: 0.96rem;
+  color: var(--banner-text-soft);
+  line-height: 1.8;
+}
+
+/* Body layout: timeline + detail card */
+
+.context__body {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
+  column-gap: 4.2vw;
+  align-items: flex-start;
+}
+
+/* Timeline column */
+
+.context__timeline {
+  padding-top: 0.5rem;
+}
+
+.context__timeline-label {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--banner-text-soft);
+  margin-bottom: 1rem;
+}
+
+.context__timeline-item {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 0.5rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(211, 181, 190, 0.6);
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  cursor: pointer;
+  transition: background 0.2s ease-out, box-shadow 0.2s ease-out,
+    transform 0.15s ease-out, border-color 0.2s ease-out;
+}
+
+.context__timeline-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
+}
+
+.context__timeline-item--active {
+  background: linear-gradient(
+    115deg,
+    var(--accent-primary-deep),
+    var(--accent-primary)
+  );
+  border-color: transparent;
+  box-shadow: 0 16px 40px rgba(178, 85, 24, 0.55);
+  color: #ffffff;
+}
+
+.context__timeline-item--active .context__timeline-date,
+.context__timeline-item--active .context__timeline-tag {
+  color: #ffffff;
+}
+
+.context__timeline-date {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.context__timeline-tag {
+  font-size: 0.72rem;
+  color: var(--banner-text-soft);
+}
+
+/* Detail card */
+
+.context__detail {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 1.8rem 2rem 1.9rem;
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+/* soft glow accent in the corner */
+.context__detail::before {
+  content: "";
+  position: absolute;
+  inset: -60% 40% auto auto;
+  background: radial-gradient(
+    120% 150% at 0% 0%,
+    rgba(206, 133, 56, 0.2),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.context__detail-kicker {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--banner-text-soft);
+  margin-bottom: 0.5rem;
+}
+
+.context__detail-title {
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.context__detail-text {
+  font-size: 0.95rem;
+  color: var(--banner-text-soft);
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+
+.context__detail-vars {
+  margin-bottom: 1.2rem;
+}
+
+.context__detail-vars-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--banner-text-soft);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.context__detail-vars-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.context__detail-vars-list li {
+  font-size: 0.78rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(245, 237, 225, 0.9);
+  color: var(--accent-primary-deep);
+}
+
+.context__detail-source {
+  font-size: 0.8rem;
+  color: var(--banner-text-soft);
+  margin-bottom: 0.8rem;
+}
+
+.context__detail-footnote {
+  font-size: 0.76rem;
+  color: var(--banner-text-soft);
+  opacity: 0.9;
+}
+
+/* Responsive */
+
+@media (max-width: 960px) {
+  .context {
+    padding-inline: 5vw;
+  }
+
+  .context__body {
+    grid-template-columns: 1fr;
+    row-gap: 1.8rem;
+  }
+
+  .context__timeline {
+    order: 2;
+  }
+
+  .context__detail {
+    order: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .context {
+    padding-inline: 1.6rem;
+  }
+
+  .context__detail {
+    padding: 1.5rem 1.5rem 1.7rem;
+  }
+}
