@@ -1,40 +1,39 @@
-/* Section wrapper */
+/* SECTION WRAPPER
+   -------------------------------------------------- */
+
 .context {
-  background: radial-gradient(
-      160% 220% at 0% 0%,
-      rgba(206, 133, 56, 0.08),
-      transparent 52%
-    ),
-    var(--banner-bg);
-  padding: 4rem 7vw 4.5rem;
+  background: var(--banner-bg);
+  border-top: 1px solid rgba(0, 0, 0, 0.03);
+  padding: 4rem 8vw 4.5rem;
   color: var(--banner-text-main);
 }
 
 .context__inner {
-  max-width: 1180px;
+  max-width: 1120px;
   margin: 0 auto;
 }
 
-/* Header */
+/* HEADER
+   -------------------------------------------------- */
 
 .context__header {
-  max-width: 640px;
-  margin-bottom: 2.6rem;
+  max-width: 620px;
+  margin-bottom: 2.4rem;
 }
 
 .context__eyebrow {
   font-size: 0.75rem;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--banner-text-soft);
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.6rem;
 }
 
 .context__title {
-  font-size: clamp(1.7rem, 1.2rem + 1.4vw, 2.1rem);
-  letter-spacing: 0.08em;
+  font-size: clamp(1.8rem, 1.3rem + 1.4vw, 2.2rem);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.8rem;
 }
 
 .context__lede {
@@ -43,101 +42,138 @@
   line-height: 1.8;
 }
 
-/* Body layout: timeline + detail card */
+/* BODY LAYOUT
+   -------------------------------------------------- */
 
 .context__body {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
-  column-gap: 4.2vw;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr);
+  column-gap: 3.5vw;
   align-items: flex-start;
 }
 
-/* Timeline column */
+/* TIMELINE COLUMN
+   -------------------------------------------------- */
+
+/* TIMELINE COLUMN
+   -------------------------------------------------- */
 
 .context__timeline {
-  padding-top: 0.5rem;
+  padding-top: 0.6rem;
+  position: relative;
+  padding-left: 1.5rem;
 }
 
-.context__timeline-label {
-  font-size: 0.74rem;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--banner-text-soft);
-  margin-bottom: 1rem;
+.context__timeline::before {
+  content: "";
+  position: absolute;
+  left: 0.45rem;
+  top: 1.4rem;
+  bottom: 0.4rem;
+  width: 2px;
+  background: rgba(0, 0, 0, 0.06);
 }
 
 .context__timeline-item {
   width: 100%;
   text-align: left;
-  margin-bottom: 0.5rem;
-  padding: 0.6rem 0.9rem;
-  border-radius: 999px;
-  border: 1px solid rgba(211, 181, 190, 0.6);
-  background: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.8rem;
+  padding: 0.85rem 1.2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(3px);
+
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.6rem;
+  flex-direction: column;
+  gap: 0.25rem;
+
   cursor: pointer;
-  transition: background 0.2s ease-out, box-shadow 0.2s ease-out,
-    transform 0.15s ease-out, border-color 0.2s ease-out;
+  transition: all 0.22s ease;
+  position: relative;
 }
 
 .context__timeline-item:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.98);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+  border-color: rgba(206, 133, 56, 0.35);
 }
 
+/* dot indicator */
+.context__timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -1.6rem;
+  top: 1.1rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.14);
+  background: var(--banner-bg);
+  transition: all 0.25s ease;
+}
+
+.context__timeline-item:hover::before {
+  border-color: var(--accent-primary);
+}
+
+/* ACTIVE button style */
 .context__timeline-item--active {
   background: linear-gradient(
-    115deg,
-    var(--accent-primary-deep),
-    var(--accent-primary)
+    135deg,
+    rgba(206, 133, 56, 0.16),
+    rgba(255, 255, 255, 0.92)
   );
-  border-color: transparent;
-  box-shadow: 0 16px 40px rgba(178, 85, 24, 0.55);
-  color: #ffffff;
+  border-color: rgba(206, 133, 56, 0.45);
+  box-shadow: 0 14px 36px rgba(206, 133, 56, 0.18);
+  transform: translateY(-1px);
 }
 
-.context__timeline-item--active .context__timeline-date,
-.context__timeline-item--active .context__timeline-tag {
-  color: #ffffff;
+.context__timeline-item--active::before {
+  background: var(--accent-primary-deep);
+  border-color: var(--accent-primary-deep);
+  transform: scale(1.15);
 }
 
 .context__timeline-date {
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.85rem;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  color: var(--banner-text-main);
 }
 
 .context__timeline-tag {
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   color: var(--banner-text-soft);
 }
 
-/* Detail card */
+/* DETAIL CARD
+   -------------------------------------------------- */
+
+/* DETAIL CARD
+   -------------------------------------------------- */
 
 .context__detail {
   background: #ffffff;
-  border-radius: 28px;
-  padding: 1.8rem 2rem 1.9rem;
-  box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.12),
-    0 0 0 1px rgba(255, 255, 255, 0.8);
+  border-radius: 26px;
+  padding: 2.3rem 2.5rem 2.4rem;          /* more vertical + horizontal padding */
+  min-height: 360px;                       /* makes the card visually taller */
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.10);
+  border: 1px solid rgba(0, 0, 0, 0.02);
   position: relative;
-  overflow: hidden;
 }
 
-/* soft glow accent in the corner */
+/* soft glow — a bit wider and softer so it matches the hero */
 .context__detail::before {
   content: "";
   position: absolute;
-  inset: -60% 40% auto auto;
+  inset: -40% 50% auto auto;
   background: radial-gradient(
-    120% 150% at 0% 0%,
-    rgba(206, 133, 56, 0.2),
-    transparent 60%
+    130% 170% at 0% 0%,
+    rgba(206, 133, 56, 0.16),
+    transparent 70%
   );
   pointer-events: none;
 }
@@ -145,59 +181,83 @@
 .context__detail-kicker {
   font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   color: var(--banner-text-soft);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
 }
 
 .context__detail-title {
-  font-size: 1.25rem;
-  letter-spacing: 0.06em;
+  font-size: clamp(1.35rem, 1.1rem + 0.6vw, 1.8rem);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1.05rem;                 /* extra space below the title */
 }
 
 .context__detail-text {
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   color: var(--banner-text-soft);
-  line-height: 1.8;
-  margin-bottom: 1.2rem;
+  line-height: 1.9;                       /* more space between lines */
+  margin-bottom: 1.5rem;                  /* more gap before “variables” row */
 }
 
+/* variables row */
+
 .context__detail-vars {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.4rem;
 }
 
 .context__detail-vars-label {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   color: var(--banner-text-soft);
   display: block;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
 }
 
 .context__detail-vars-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem;
+  gap: 0.45rem;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
 .context__detail-vars-list li {
-  font-size: 0.78rem;
-  padding: 0.35rem 0.7rem;
+  font-size: 0.8rem;
+  padding: 0.38rem 0.95rem;
   border-radius: 999px;
-  background: rgba(245, 237, 225, 0.9);
+  background: linear-gradient(
+    135deg,
+    rgba(245, 223, 199, 0.9),
+    rgba(255, 245, 234, 0.95)
+  );
   color: var(--accent-primary-deep);
 }
+
+/* source + note */
+
+.context__detail-source {
+  font-size: 0.82rem;
+  color: var(--banner-text-soft);
+  margin-bottom: 0.8rem;
+  line-height: 1.7;
+}
+
+.context__detail-footnote {
+  font-size: 0.78rem;
+  color: var(--banner-text-soft);
+  opacity: 0.95;
+  line-height: 1.75;
+}
+
+/* sources + note */
 
 .context__detail-source {
   font-size: 0.8rem;
   color: var(--banner-text-soft);
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.7rem;
 }
 
 .context__detail-footnote {
@@ -206,20 +266,22 @@
   opacity: 0.9;
 }
 
-/* Responsive */
+/* RESPONSIVE
+   -------------------------------------------------- */
 
 @media (max-width: 960px) {
   .context {
-    padding-inline: 5vw;
+    padding-inline: 6vw;
   }
 
   .context__body {
     grid-template-columns: 1fr;
-    row-gap: 1.8rem;
+    row-gap: 1.7rem;
   }
 
   .context__timeline {
     order: 2;
+    margin-top: 0.2rem;
   }
 
   .context__detail {
@@ -234,5 +296,9 @@
 
   .context__detail {
     padding: 1.5rem 1.5rem 1.7rem;
+  }
+
+  .context__title {
+    letter-spacing: 0.04em;
   }
 }

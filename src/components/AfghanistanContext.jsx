@@ -137,7 +137,7 @@ const AfghanistanContext = () => {
         <div className="context__body">
           {/* Left: clickable dates */}
           <div className="context__timeline">
-            <p className="context__timeline-label">Click a date to explore</p>
+            <p className="context__timeline-label">Click a date to know more about the situation</p>
             {EVENTS.map((event) => (
               <button
                 key={event.id}
