@@ -3,6 +3,7 @@ import Banner from './components/Banner'
 import AfghanistanContext from './components/AfghanistanContext'
 import Project from './components/Project'
 import Findings from './components/Findings'
+import MeetTeam from './components/MeetTeam'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
 
@@ -14,6 +15,7 @@ function App() {
         <AfghanistanContext />
         <Project />
         <Findings />
+        <MeetTeam />
         <CTA />
       </main>
       <Footer />
