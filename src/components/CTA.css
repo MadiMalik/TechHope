@@ -1,0 +1,145 @@
+/* CTA SECTION
+   -------------------------------------------------- */
+
+#action {
+  background: var(--banner-bg);
+  padding: 4rem 8vw 4.8rem;
+  color: var(--banner-text-main);
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+#action .container {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.cta {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 2.4rem 2.6rem;
+  box-shadow: 0 34px 85px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2.2rem;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* soft warm accent glow */
+.cta::before {
+  content: "";
+  position: absolute;
+  inset: -45% 50% auto auto;
+  background: radial-gradient(
+    130% 180% at 0% 0%,
+    rgba(206, 133, 56, 0.18),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* Text area */
+
+.cta-title {
+  font-size: clamp(1.2rem, 1rem + 1vw, 1.55rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.cta-text {
+  font-size: 0.96rem;
+  line-height: 1.8;
+  color: var(--banner-text-soft);
+  max-width: 500px;
+}
+
+/* Right side actions */
+
+.cta-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+/* CTA Button */
+
+.cta-btn {
+  display: inline-block;
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  text-decoration: none;
+
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary-deep),
+    var(--accent-primary)
+  );
+  color: #fff;
+  font-size: 0.86rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 42px rgba(178, 85, 24, 0.45);
+}
+
+/* Small note */
+
+.cta-note {
+  margin-top: 0.4rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--banner-text-soft);
+  opacity: 0.9;
+}
+
+/* Responsive */
+
+@media (max-width: 840px) {
+  .cta {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1.8rem;
+  }
+
+  .cta-actions {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .cta-btn {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+@media (max-width: 560px) {
+  #action {
+    padding-inline: 1.6rem;
+  }
+
+  .cta {
+    padding: 1.8rem 1.4rem;
+    gap: 1.4rem;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-btn {
+    width: 100%;
+  }
+}

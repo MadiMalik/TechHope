@@ -15,25 +15,21 @@ const Banner = () => {
           <span className="banner__brand-name">TechHope</span>
         </div>
 
-        <div className="banner__nav-right">
-          <a href="#background" className="banner__nav-link">
-            Background
-          </a>
-          <a href="#project" className="banner__nav-link">
-            Project
-          </a>
-          <a href="#findings" className="banner__nav-link">
-            Findings
-          </a>
-          <a
-            href="https://github.com/MIT-Emerging-Talent/elo2-afghan-girls-online-learning"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="banner__nav-cta"
-          >
-            View GitHub
-          </a>
-        </div>
+    <div className="banner__nav-right">
+      <a href="#background" className="banner__nav-link">Background</a>
+      <a href="#project" className="banner__nav-link">Project</a>
+      <a href="#findings" className="banner__nav-link">Findings</a>
+      <a href="#team" className="banner__nav-link">Team</a>
+
+      <a
+        href="https://github.com/MIT-Emerging-Talent/elo2-afghan-girls-online-learning"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="banner__nav-cta"
+      >
+        View GitHub
+      </a>
+    </div>
       </nav>
 
       {/* Hero section - image left, text right */}
