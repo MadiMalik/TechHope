@@ -2,6 +2,36 @@ import React, { useState } from "react";
 import "./AfghanistanContext.css";
 
 const EVENTS = [
+    {
+    id: "2024-08-15",
+    label: "15 Aug 2024",
+    tag: "Education bans",
+    title: "Only country banning girls’ secondary and women’s higher education",
+    kicker: "Education bans",
+    description:
+      "UNESCO notes that Afghanistan is the only country in the world where girls are banned from secondary school and women from higher education.",
+    variables: [
+      "learning_expectations_met",
+      "overall_satisfaction",
+      "continue_next_term"
+    ],
+    source: "UNESCO, 15 Aug 2024"
+  },
+    {
+    id: "2025-08-14",
+    label: "14 Aug 2025",
+    tag: "~2.2M out of school",
+    title: "Four years on, ~2.2 million girls still out of school",
+    kicker: "Long-term exclusion",
+    description:
+      "Four years after the takeover, UNESCO estimates around 2.2 million Afghan girls remain out of school, highlighting how long-term the exclusion has become.",
+    variables: [
+      "motivation_level",
+      "future_plans_clarity",
+      "continue_next_term"
+    ],
+    source: "UNESCO statement, 14 Aug 2025"
+  },
   {
     id: "2023-05-23",
     label: "23 May 2023",
@@ -18,36 +48,8 @@ const EVENTS = [
     ],
     source: "The Diplomat (Zirack, ‘How Afghan Girls Are Overcoming Barriers Through Online Learning’, 23 May 2023)"
   },
-  {
-    id: "2024-08-15",
-    label: "15 Aug 2024",
-    tag: "Education bans",
-    title: "Only country banning girls’ secondary and women’s higher education",
-    kicker: "Education bans",
-    description:
-      "UNESCO notes that Afghanistan is the only country in the world where girls are banned from secondary school and women from higher education.",
-    variables: [
-      "learning_expectations_met",
-      "overall_satisfaction",
-      "continue_next_term"
-    ],
-    source: "UNESCO, 15 Aug 2024"
-  },
-  {
-    id: "2025-08-14",
-    label: "14 Aug 2025",
-    tag: "~2.2M out of school",
-    title: "Four years on, ~2.2 million girls still out of school",
-    kicker: "Long-term exclusion",
-    description:
-      "Four years after the takeover, UNESCO estimates around 2.2 million Afghan girls remain out of school, highlighting how long-term the exclusion has become.",
-    variables: [
-      "motivation_level",
-      "future_plans_clarity",
-      "continue_next_term"
-    ],
-    source: "UNESCO statement, 14 Aug 2025"
-  },
+
+
   {
     id: "2025-01-01",
     label: "Jan 2025",
@@ -71,7 +73,7 @@ const EVENTS = [
     title: "Fragile banking, stressed economy",
     kicker: "Service environment",
     description:
-      "The World Bank’s Afghanistan Development Update describes weak credit, a fragile banking system, and constrained basic services—conditions that shape what families can afford for data, devices and electricity.",
+     `The World Bank’s Afghanistan Development Update highlights weak credit, an unstable banking system, and limited basic services, factors that affect what families can afford for data, devices, and electricity.`,
     variables: [
       "affordability",
       "data_spend_share",
@@ -127,7 +129,7 @@ const AfghanistanContext = () => {
           </h2>
           <p className="context__lede">
             Dated facts on bans, connectivity, affordability, and 2025
-            shutdowns—and how they shape the variables in our survey and
+            shutdowns, and how they shape the variables in our survey and
             models.
           </p>
         </header>

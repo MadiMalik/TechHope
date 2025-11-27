@@ -18,7 +18,10 @@
     transparent 72%
   );
 }
+a{
+  text-decoration: none;
 
+}
 /* ROOT LAYOUT */
 
 .banner {
@@ -68,6 +71,7 @@
 
 .banner__brand-name {
   font-size: 0.9rem;
+  text-transform: none; 
   letter-spacing: 0.22em;
   font-weight: 600;
 }
