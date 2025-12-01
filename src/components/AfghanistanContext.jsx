@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./AfghanistanContext.css";
 
 const EVENTS = [
-    {
+  {
     id: "2024-08-15",
     label: "15 Aug 2024",
     tag: "Education bans",
@@ -15,9 +15,11 @@ const EVENTS = [
       "overall_satisfaction",
       "continue_next_term"
     ],
-    source: "UNESCO, 15 Aug 2024"
+    source: "UNESCO, 15 Aug 2024",
+    link: "https://www.unesco.org/en/articles/afghanistan-14-million-girls-still-banned-school-de-facto-authorities",
+    ctaLabel: "Open UNESCO article"
   },
-    {
+  {
     id: "2025-08-14",
     label: "14 Aug 2025",
     tag: "~2.2M out of school",
@@ -30,7 +32,9 @@ const EVENTS = [
       "future_plans_clarity",
       "continue_next_term"
     ],
-    source: "UNESCO statement, 14 Aug 2025"
+    source: "UNESCO statement, 14 Aug 2025",
+    link: "https://www.unesco.org/en/articles/afghanistan-four-years-22-million-girls-still-banned-school",
+    ctaLabel: "Read UNESCO statement"
   },
   {
     id: "2023-05-23",
@@ -46,10 +50,11 @@ const EVENTS = [
       "video_loads_smoothly",
       "digital_skills"
     ],
-    source: "The Diplomat (Zirack, ‘How Afghan Girls Are Overcoming Barriers Through Online Learning’, 23 May 2023)"
+    source:
+      "The Diplomat (Zirack, ‘How Afghan Girls Are Overcoming Barriers Through Online Learning’, 23 May 2023)",
+    link: "https://thediplomat.com/2023/05/how-afghan-girls-are-overcoming-barriers-through-online-learning/",
+    ctaLabel: "Read The Diplomat story"
   },
-
-
   {
     id: "2025-01-01",
     label: "Jan 2025",
@@ -64,7 +69,9 @@ const EVENTS = [
       "video_loads_smoothly",
       "device_sharing"
     ],
-    source: "DataReportal, ‘Digital 2025: Afghanistan’ (Jan 2025)"
+    source: "DataReportal, ‘Digital 2025: Afghanistan’ (Jan 2025)",
+    link: "https://datareportal.com/reports/digital-2025-afghanistan",
+    ctaLabel: "Open DataReportal"
   },
   {
     id: "2025-04-01",
@@ -73,13 +80,15 @@ const EVENTS = [
     title: "Fragile banking, stressed economy",
     kicker: "Service environment",
     description:
-     `The World Bank’s Afghanistan Development Update highlights weak credit, an unstable banking system, and limited basic services, factors that affect what families can afford for data, devices, and electricity.`,
+      "The World Bank’s Afghanistan Development Update highlights weak credit, an unstable banking system, and limited basic services, factors that affect what families can afford for data, devices, and electricity.",
     variables: [
       "affordability",
       "data_spend_share",
       "study_environment_stability"
     ],
-    source: "World Bank, Afghanistan Development Update (Apr 2025)"
+    source: "World Bank, Afghanistan Development Update (Apr 2025)",
+    link: "https://thedocs.worldbank.org/en/doc/777eab7b5ab9802aa3535f1e73fa1456-0310012025/original/Afghanistan-Development-Update-April-2025.pdf",
+    ctaLabel: "Open World Bank update"
   },
   {
     id: "2025-09-16",
@@ -94,7 +103,9 @@ const EVENTS = [
       "attendance",
       "assignment_submission_timing"
     ],
-    source: "Washington Post report, 16 Sep 2025"
+    source: "Washington Post report, 16 Sep 2025",
+    link: "https://www.washingtonpost.com/world/2025/09/16/afghanistan-internet-ban-taliban-balkh/",
+    ctaLabel: "Read Washington Post report"
   },
   {
     id: "2025-09-29",
@@ -110,7 +121,9 @@ const EVENTS = [
       "missing_data_flags",
       "stress_or_anxiety"
     ],
-    source: "Washington Post & The Guardian, 29–30 Sep 2025"
+    source: "Washington Post & The Guardian, 29–30 Sep 2025",
+    link: "https://www.theguardian.com/world/2025/sep/30/afghanistan-mobile-phones-internet-telecoms-blackout-taliban",
+    ctaLabel: "Read outage coverage"
   }
 ];
 
@@ -137,7 +150,9 @@ const AfghanistanContext = () => {
         <div className="context__body">
           {/* Left: clickable dates */}
           <div className="context__timeline">
-            <p className="context__timeline-label">Click a date to know more about the situation</p>
+            <p className="context__timeline-label">
+              Click a date to explore how the context changed.
+            </p>
             {EVENTS.map((event) => (
               <button
                 key={event.id}
@@ -175,6 +190,17 @@ const AfghanistanContext = () => {
               <span>Source:&nbsp;</span>
               {active.source}
             </p>
+
+            {active.link && (
+              <a
+                href={active.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="context__detail-link"
+              >
+                {active.ctaLabel || "Learn more"}
+              </a>
+            )}
 
             <p className="context__detail-footnote">
               Note: internet penetration and outage figures are approximate and

@@ -2,10 +2,14 @@
    ----------------------------------------------- */
 
 #project {
-  background: var(--banner-bg);
-  border-top: 1px solid rgba(0, 0, 0, 0.03);
   padding: 4rem 8vw 4.5rem;
   color: var(--banner-text-main);
+
+  /* match banner/context dark background */
+  background:
+    radial-gradient(circle at 0% 0%, rgba(255, 199, 122, 0.05), transparent 55%),
+    radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.03), transparent 55%),
+    #050509;
 }
 
 #project .container {
@@ -51,37 +55,39 @@
   align-items: stretch;
 }
 
-/* Info cards */
+/* Info cards – styled like context detail card */
 
 #project .info-card {
   background: #ffffff;
-  border-radius: 24px;
-  padding: 1.9rem 2rem 2.1rem;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  border-radius: 26px;
+  padding: 2.1rem 2.3rem 2.3rem;
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.12);
   border: 1px solid rgba(0, 0, 0, 0.02);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   position: relative;
   overflow: hidden;
 }
 
-/* soft warm wash in top-right corner, echoing the context card */
+/* soft warm wash in top-right corner, echoing context card */
 #project .info-card::before {
   content: "";
   position: absolute;
-  inset: -35% 45% auto auto;
+  inset: -40% 50% auto auto;
   background: radial-gradient(
     130% 170% at 0% 0%,
-    rgba(206, 133, 56, 0.14),
+    rgba(206, 133, 56, 0.16),
     transparent 70%
   );
   pointer-events: none;
 }
 
+/* main paragraph text inside card */
+
 #project .info-card > p {
   font-size: 0.98rem;
-  color: var(--banner-text-soft);
+  color: #4a3928;  /* slightly deeper for contrast on white */
   line-height: 1.9;
   margin-bottom: 1.2rem;
 }
@@ -98,7 +104,7 @@
   position: relative;
   padding-left: 1.3rem;
   font-size: 0.94rem;
-  color: var(--banner-text-soft);
+  color: #7b6652; /* similar to context source text */
   line-height: 1.8;
   margin-bottom: 0.45rem;
 }
@@ -107,7 +113,7 @@
   content: "";
   position: absolute;
   left: 0.2rem;
-  top: 0.8rem;
+  top: 0.82rem;
   width: 6px;
   height: 6px;
   border-radius: 50%;

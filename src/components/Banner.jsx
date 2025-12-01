@@ -1,7 +1,14 @@
+// src/components/Banner.jsx
 import React from "react";
 import "./Banner.css";
-import bannerImage from "../assets/banner.png";
 import logo from "../assets/logo.png";
+
+
+
+import heroLeftTop from "../assets/girl11.jpg"
+import heroLeftBottom from "../assets/girl5.jpg";
+import heroRightTop from "../assets/girl19.jpg";
+import heroRightBottom from "../assets/girl20.webp";
 
 const Banner = () => {
   return (
@@ -15,42 +22,54 @@ const Banner = () => {
           <span className="banner__brand-name">TechHope</span>
         </div>
 
-    <div className="banner__nav-right">
-      <a href="#background" className="banner__nav-link">Background</a>
-      <a href="#project" className="banner__nav-link">Project</a>
-      <a href="#findings" className="banner__nav-link">Findings</a>
-      <a href="#team" className="banner__nav-link">Team</a>
-
-      <a
-        href="https://github.com/MIT-Emerging-Talent/elo2-afghan-girls-online-learning"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="banner__nav-cta"
-      >
-        View GitHub
-      </a>
-    </div>
+        <div className="banner__nav-right">
+          <a href="#background" className="banner__nav-link">
+            Background
+          </a>
+          <a href="#project" className="banner__nav-link">
+            Project
+          </a>
+          <a href="#findings" className="banner__nav-link">
+            Findings
+          </a>
+          <a
+            href="#team"
+            className="banner__nav-link"
+          >
+            Team
+          </a>
+          <a
+            href="https://github.com/MIT-Emerging-Talent/elo2-afghan-girls-online-learning"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="banner__nav-cta"
+          >
+            View GitHub
+          </a>
+        </div>
       </nav>
 
-      {/* Hero section - image left, text right */}
+      {/* Hero layout – side strips + central panel */}
       <div className="banner__hero">
-        {/* Hero image */}
-        <div className="banner__hero-image">
-          <div
-            className="banner__image"
-            style={{ backgroundImage: `url(${bannerImage})` }}
-          />
+        {/* LEFT STRIP */}
+        <div className="banner__strip banner__strip--left">
+          <div className="banner__photo-frame banner__photo-frame--top">
+            <img src={heroLeftTop} alt="Afghan girl studying online" />
+          </div>
+          <div className="banner__photo-frame banner__photo-frame--bottom">
+            <img src={heroLeftBottom} alt="Afghan girl studying online" />
+          </div>
         </div>
 
-        {/* Text block */}
-        <div className="banner__hero-copy">
+        {/* CENTER PANEL */}
+        <div className="banner__panel">
           <p className="banner__eyebrow">Afghan girls · online university</p>
 
           <h1 className="banner__title">
             <span className="banner__title-script">
               Learning behind closed doors
             </span>
-            <span className="banner__title-main">TechHope Study</span>
+            <span className="banner__title-main">TECHHOPE STUDY</span>
           </h1>
 
           <p className="banner__subtitle">
@@ -80,6 +99,16 @@ const Banner = () => {
             Built as part of MIT Emerging Talent · anonymous, ethics-aware
             survey of Afghan online students.
           </p>
+        </div>
+
+        {/* RIGHT STRIP */}
+        <div className="banner__strip banner__strip--right">
+          <div className="banner__photo-frame banner__photo-frame--top">
+            <img src={heroRightTop} alt="Afghan girl learning online" />
+          </div>
+          <div className="banner__photo-frame banner__photo-frame--bottom">
+            <img src={heroRightBottom} alt="Afghan girl learning online" />
+          </div>
         </div>
       </div>
     </header>

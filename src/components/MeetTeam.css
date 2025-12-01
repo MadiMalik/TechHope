@@ -2,10 +2,16 @@
    -------------------------------------------------- */
 
 #team {
-  background: var(--banner-bg);
   padding: 4rem 8vw 4.5rem;
   color: var(--banner-text-main);
-  border-top: 1px solid rgba(0, 0, 0, 0.04);
+
+  /* match banner/theme */
+  background:
+    radial-gradient(circle at 0% 0%, rgba(255, 199, 122, 0.05), transparent 55%),
+    radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.03), transparent 55%),
+    #050509;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 #team .container {
@@ -54,7 +60,7 @@
 /* CARDS */
 
 .team-card {
-  background: #ffffff;
+  background: #ffffff;                     /* unchanged */
   border-radius: 26px;
   padding: 1.9rem 1.9rem 2.2rem;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
@@ -70,8 +76,7 @@
     border-color 0.22s ease-out;
 }
 
-/* warm highlight */
-
+/* warm highlight (do not change) */
 .team-card::before {
   content: "";
   position: absolute;
@@ -111,6 +116,7 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: 0.2rem;
+  color: #23160e;  /* keep same warm header color */
 }
 
 .team-role {
@@ -128,7 +134,7 @@
   margin-bottom: 1rem;
 }
 
-/* links */
+/* links (UNCHANGED COLORS) */
 
 .team-links {
   margin-top: auto;
@@ -140,11 +146,15 @@
   font-size: 0.83rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
+
   padding: 0.45rem 0.9rem;
   border-radius: 999px;
+
+  /* keep your exact styling */
   background: rgba(245, 237, 225, 0.9);
   color: var(--accent-primary-deep);
   border: 1px solid rgba(206, 133, 56, 0.5);
+
   transition: background 0.2s ease-out, transform 0.15s ease-out;
 }
 

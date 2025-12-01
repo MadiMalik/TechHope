@@ -1,6 +1,13 @@
+/* FOOTER
+   -------------------------------------------------- */
+
 #footer {
-  background: var(--banner-bg);
-  border-top: 1px solid rgba(0,0,0,0.05);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(255, 199, 122, 0.05), transparent 55%),
+    radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.03), transparent 55%),
+    #050509;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
   padding: 2.2rem 8vw;
   color: var(--banner-text-main);
   font-size: 0.92rem;
@@ -9,16 +16,24 @@
 .footer-inner {
   max-width: 1120px;
   margin: 0 auto;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   flex-wrap: wrap;
   gap: 1rem;
 }
 
+/* brand text */
+
 .footer-brand {
   color: var(--banner-text-soft);
+  opacity: 0.9;              /* cleaner, softer */
+  letter-spacing: 0.04em;
 }
+
+/* footer links */
 
 .footer-links {
   display: flex;
@@ -29,13 +44,17 @@
   font-size: 0.82rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
+
   color: var(--banner-text-soft);
-  transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out, opacity 0.2s ease-out;
 }
 
 .footer-links a:hover {
   color: var(--accent-primary-deep);
+  opacity: 1;
 }
+
+/* RESPONSIVE */
 
 @media (max-width: 600px) {
   #footer {

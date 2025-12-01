@@ -2,10 +2,16 @@
    -------------------------------------------------- */
 
 #action {
-  background: var(--banner-bg);
   padding: 4rem 8vw 4.8rem;
   color: var(--banner-text-main);
-  border-top: 1px solid rgba(0, 0, 0, 0.04);
+
+  /* match your dark cinematic banner / hero */
+  background:
+    radial-gradient(circle at 0% 0%, rgba(255, 199, 122, 0.05), transparent 55%),
+    radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.03), transparent 55%),
+    #050509;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 #action .container {
@@ -14,7 +20,7 @@
 }
 
 .cta {
-  background: #ffffff;
+  background: #ffffff;                       /* untouched */
   border-radius: 28px;
   padding: 2.4rem 2.6rem;
   box-shadow: 0 34px 85px rgba(0, 0, 0, 0.12);
@@ -29,7 +35,7 @@
   overflow: hidden;
 }
 
-/* soft warm accent glow */
+/* warm glow — unchanged */
 .cta::before {
   content: "";
   position: absolute;
@@ -42,13 +48,14 @@
   pointer-events: none;
 }
 
-/* Text area */
+/* TEXT */
 
 .cta-title {
   font-size: clamp(1.2rem, 1rem + 1vw, 1.55rem);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   margin-bottom: 0.6rem;
+  color: #23160e; /* matching card header tone */
 }
 
 .cta-text {
@@ -58,7 +65,7 @@
   max-width: 500px;
 }
 
-/* Right side actions */
+/* ACTION BUTTONS */
 
 .cta-actions {
   display: flex;
@@ -67,20 +74,19 @@
   gap: 0.8rem;
 }
 
-/* CTA Button */
-
 .cta-btn {
   display: inline-block;
   padding: 0.7rem 1.2rem;
   border-radius: 999px;
-  text-decoration: none;
 
+  /* COLORS NOT CHANGED */
   background: linear-gradient(
     135deg,
     var(--accent-primary-deep),
     var(--accent-primary)
   );
   color: #fff;
+
   font-size: 0.86rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -102,7 +108,7 @@
   opacity: 0.9;
 }
 
-/* Responsive */
+/* RESPONSIVE */
 
 @media (max-width: 840px) {
   .cta {
