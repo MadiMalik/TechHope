@@ -57,6 +57,13 @@
   align-items: stretch;
 }
 
+/* Center the last finding-card when the row has only one item */
+.findings-grid > .finding-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1; /* span full width */
+  max-width: 550px;     /* optional: keeps it nicely centered */
+  margin-left: auto;
+  margin-right: auto;
+}
 /* CARDS
    -------------------------------------------------- */
 

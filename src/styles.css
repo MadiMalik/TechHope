@@ -1,0 +1,21 @@
+/* Minimal reset to remove default outer spacing */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  min-height: 100%;
+}
+
+/* Button rounding overrides */
+:where(.banner__nav-cta),
+:where(.banner__btn-primary),
+:where(.banner__btn) {
+  border-radius: 9999px !important;
+}

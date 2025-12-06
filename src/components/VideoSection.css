@@ -1,0 +1,143 @@
+/* VIDEO SECTION
+   -------------------------------------------------- */
+
+.videos {
+  padding: 4rem 8vw 4.5rem;
+  color: var(--banner-text-main);
+
+  background:
+    radial-gradient(circle at 0% 0%, rgba(255, 199, 122, 0.05), transparent 55%),
+    radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.03), transparent 55%),
+    #050509;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.videos__inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* HEADER
+   -------------------------------------------------- */
+
+.videos__header {
+  max-width: 700px;
+  margin: 0 auto 2.6rem;
+  text-align: center;
+}
+
+.videos__eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--banner-text-soft);
+  margin-bottom: 0.6rem;
+}
+
+.videos__title {
+  font-size: clamp(1.9rem, 1.3rem + 1.4vw, 2.4rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+
+.videos__lede {
+  font-size: 0.96rem;
+  color: var(--banner-text-soft);
+  line-height: 1.9;
+}
+
+/* LIST
+   -------------------------------------------------- */
+
+.videos__list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+/* Each video row */
+
+.videos__item {
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* last item with a tiny extra bottom padding to breathe */
+.videos__item:last-child {
+  padding-bottom: 0.4rem;
+}
+
+/* title + subtitle */
+
+.videos__item-header {
+  margin-bottom: 0.9rem;
+}
+
+.videos__item-title {
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.videos__item-subtitle {
+  font-size: 0.9rem;
+  color: var(--banner-text-soft);
+}
+
+/* MEDIA (responsive 16:9)
+   -------------------------------------------------- */
+
+.videos__media {
+  position: relative;
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background: radial-gradient(
+    circle at 0% 0%,
+    rgba(206, 133, 56, 0.25),
+    rgba(20, 16, 12, 0.98)
+  );
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* Use the browser's aspect-ratio if available */
+.videos__media iframe,
+.videos__media video {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  display: block;
+}
+
+/* Fallback for older browsers (optional) */
+@supports not (aspect-ratio: 16 / 9) {
+  .videos__media {
+    padding-top: 56.25%; /* 16:9 */
+  }
+
+  .videos__media iframe,
+  .videos__media video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* RESPONSIVE
+   -------------------------------------------------- */
+
+@media (max-width: 960px) {
+  .videos {
+    padding-inline: 6vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .videos {
+    padding-inline: 1.6rem;
+  }
+}

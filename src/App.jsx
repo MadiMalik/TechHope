@@ -1,5 +1,6 @@
 import React from 'react'
 import Banner from './components/Banner'
+import VideoSection from './components/VideoSection'    
 import AfghanistanContext from './components/AfghanistanContext'
 import Project from './components/Project'
 import Findings from './components/Findings'
@@ -12,6 +13,7 @@ function App() {
     <div className="page-shell">
       <main>
         <Banner />
+        <VideoSection />
         <AfghanistanContext />
         <Project />
         <Findings />

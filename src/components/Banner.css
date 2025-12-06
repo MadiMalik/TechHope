@@ -120,6 +120,10 @@ a {
   width: 100%;
 }
 
+.banner__nav-link:hover {
+  color: #ffffff;
+}
+
 /* shared button style (top CTA + hero buttons) */
 
 .banner__nav-cta,
@@ -197,11 +201,12 @@ a {
 
 .banner__panel {
   position: relative;
-  background: rgba(5, 5, 8, 0.96);
+  background: rgba(5, 5, 8, 0.88);
   border-radius: 24px;
   padding: 2.6rem 3rem;
-  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: saturate(1.1) blur(6px);
 
   /* slight overlap into the side strips */
   margin-inline: -1rem;
@@ -251,8 +256,8 @@ a {
 .banner__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.9rem;
-  margin-bottom: 1.1rem;
+  gap: 1rem;
+  margin-bottom: 1.3rem;
 }
 
 .banner__note {
