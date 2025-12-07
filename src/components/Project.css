@@ -55,7 +55,7 @@
   align-items: stretch;
 }
 
-/* Info cards – styled like context detail card */
+/* Info cards – aligned with other white cards */
 
 #project .info-card {
   background: #ffffff;
@@ -68,6 +68,9 @@
   justify-content: flex-start;
   position: relative;
   overflow: hidden;
+
+  transition: transform 0.22s ease-out, box-shadow 0.22s ease-out,
+    border-color 0.22s ease-out;
 }
 
 /* soft warm wash in top-right corner, echoing context card */
@@ -83,13 +86,32 @@
   pointer-events: none;
 }
 
+#project .info-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(206, 133, 56, 0.22);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.16);
+}
+
 /* main paragraph text inside card */
 
 #project .info-card > p {
   font-size: 0.98rem;
-  color: #4a3928;  /* slightly deeper for contrast on white */
+  color: #4a3928; /* slightly deeper for contrast on white */
   line-height: 1.9;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.1rem;
+}
+
+/* inline links inside text */
+
+#project .info-link {
+  color: var(--accent-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+#project .info-link:hover {
+  color: var(--accent-primary-deep);
 }
 
 /* bullet list */
@@ -126,12 +148,12 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
-  margin-top: 0.4rem;
+  margin-top: 0.2rem;
 }
 
 #project .stat-pill {
   font-size: 0.8rem;
-  padding: 0.4rem 0.85rem;
+  padding: 0.4rem 0.9rem;
   border-radius: 999px;
   background: linear-gradient(
     135deg,
@@ -142,6 +164,24 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(206, 133, 56, 0.3);
+}
+
+/* clickable pill for WOU */
+
+#project .stat-pill--link {
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.18s ease-out, box-shadow 0.18s ease-out,
+    border-color 0.18s ease-out;
+}
+
+#project .stat-pill--link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+  border-color: rgba(206, 133, 56, 0.7);
 }
 
 /* RESPONSIVE
@@ -164,5 +204,9 @@
 
   #project .info-card {
     padding: 1.7rem 1.7rem 1.9rem;
+  }
+
+  #project .stat-row {
+    gap: 0.35rem;
   }
 }

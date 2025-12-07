@@ -8,7 +8,7 @@ const VIDEOS = [
     title: "Video 1 – Why this study matters",
     subtitle: "Why should I care?",
     // Replace this with your real embed / video URL
-    embedSrc: "https://www.youtube.com/embed/XXXXXXXXX"
+    embedSrc: "https://www.youtube.com/embed/VX2BZ_N-jjI?si=8qLyKlOgtHcdw7A2"
   },
   {
     id: 2,

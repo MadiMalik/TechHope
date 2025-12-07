@@ -1,5 +1,6 @@
 import React from 'react'
 import './Findings.css'
+import './Findings.overrides.css'
 
 import sampleOverview from '../assets/figure1_sample_overview.png'
 import infraReliability from '../assets/figure2_infrastructure_challenges.png'
@@ -14,11 +15,12 @@ export default function Findings() {
           <div className="section-kicker">Findings</div>
           <h2 className="section-title">What the data is showing us so far</h2>
           <p className="section-subtitle">
-            These early findings come directly from the analysis of our anonymous survey
-            of 322 Afghan girls in online university programs. Each card reflects results
-            already documented in the repository — from infrastructure challenges to
-            safety, teaching quality, and the factors that most strongly predict
-            persistence.
+            These are early findings from our ongoing analysis of an anonymous survey
+            of 322 Afghan girls and women in online university programs. Each card
+            reflects results already documented in the repository, from
+            infrastructure challenges to safety, teaching quality, and the factors
+            that most strongly predict persistence. We are still refining the models
+            and adding new visualizations as the project develops.
           </p>
         </div>
 
@@ -60,8 +62,8 @@ export default function Findings() {
             </div>
 
             <p>
-              Only 42.8% of students report being able to study without fear. Safety —
-              both emotional and physical — shows a strong connection to continuation,
+              Only 42.8% of students report being able to study without fear. Safety,
+              both emotional and physical, shows a strong connection to continuation,
               reflecting the daily pressures Afghan girls navigate while studying online.
             </p>
             <div className="coming-soon-pill">More details in safety notebooks</div>
@@ -104,8 +106,8 @@ export default function Findings() {
 
             <p>
               Family support appears repeatedly across the analysis as a factor linked to
-              better persistence and higher satisfaction. Even small acts — shared
-              devices, reduced chores, emotional encouragement — help Afghan girls stay
+              better persistence and higher satisfaction. Even small acts – sharing
+              devices, reducing chores, emotional encouragement – help Afghan girls stay
               enrolled despite instability.
             </p>
             <div className="coming-soon-pill">Model details in persistence notebook</div>
@@ -127,13 +129,34 @@ export default function Findings() {
             <p>
               64.6% of students plan to continue their studies next term. This number is
               notable given the infrastructure gaps, safety concerns, and emotional load
-              reported across the dataset — and highlights the resilience of Afghan girls
+              reported across the dataset, and highlights the resilience of Afghan girls
               pursuing higher education.
             </p>
             <div className="coming-soon-pill">See full overview in results</div>
           </article>
 
         </div>
+
+        {/* footer note + CTA under the grid */}
+        <div className="findings-footer">
+          <p className="findings-footer-note">
+            These findings are early signals from an analysis that is still in progress.
+            We are continuing to refine the models, stress-test the results, and add more
+            visuals as the project evolves.
+          </p>
+          <p className="findings-footer-link">
+            You can explore the full analysis notebooks and updated figures in our{" "}
+            <a
+              href="https://github.com/MIT-Emerging-Talent/elo2-afghan-girls-online-learning"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub repository
+            </a>
+            .
+          </p>
+        </div>
+
       </div>
     </section>
   )

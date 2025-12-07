@@ -1,62 +1,137 @@
-import React from 'react'
-import './Project.css'
+import React from "react";
+import "./Project.css";
 
-export default function Project(){
+export default function Project() {
   return (
     <section id="project">
       <div className="container">
+        {/* Section header */}
         <div className="section-header">
           <div className="section-kicker">About the project</div>
-          <h2 className="section-title">A data science project, grounded in Afghan girls’ voices</h2>
+          <h2 className="section-title">
+            A data science project, grounded in Afghan girls’ voices
+          </h2>
           <p className="section-subtitle">
-            This website is the human side of a data science project hosted in the MIT Emerging Talent ELO2 GitHub repository, focusing on Afghan girls studying online.
+            This site is the human-facing companion to our MIT Emerging Talent
+            ELO2 capstone. The full data-science workflow lives in the{" "}
+            <strong>“Afghan Girls Online Learning”</strong> GitHub repository
+            and asks a simple question: under bans, outages, and fear, what
+            actually helps Afghan girls stay in online university?
           </p>
         </div>
 
         <div className="two-column">
+          {/* LEFT CARD – what we study & why it matters */}
           <div className="info-card">
-           <p>
-            This project looks at one central question: when Afghan girls study online
-            under bans, outages, and fragile conditions, what helps them stay enrolled
-            and succeed? The study is based on an anonymous bilingual survey of 322
-            online university students, capturing their realities across internet access,
-            electricity, family support, mental load, teaching quality, and sense of
-            belonging.
-          </p>
-          <ul className="info-list">
-            <li>Anonymous bilingual survey (English and Dari/Farsi) completed by 322 Afghan girls in online universities.</li>
-            <li>Covers connectivity, devices, affordability, safety, teaching quality, motivation, and community.</li>
-            <li>Guided by CoI, Self-Determination Theory, Tinto’s model, and technology acceptance frameworks.</li>
-            <li>Designed around ethics, safety, and dignity for Afghan women and girls.</li>
-          </ul>
+            <p>
+              The project is built around one central question:{" "}
+              <strong>
+                when Afghan girls study online under bans, outages, and fragile
+                conditions, what helps them stay enrolled and succeed?
+              </strong>{" "}
+              We work with survey data from{" "}
+              <strong>322 Afghan women in online university programmes</strong>,
+              most of them inside Afghanistan (around 87.3% of the sample).
+              Online learning is one of the only remaining pathways to higher
+              education after the Taliban’s bans.
+            </p>
+
+            <p>
+              Most responses come from an online college programme called{" "}
+              <a
+                href="https://womanonlineuniversity.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="info-link"
+              >
+                Women Online University (WOU)
+              </a>
+              , collected via an anonymous Google Form in Farsi (with English
+              translation for analysis). The survey captures their realities
+              across:
+            </p>
+
+            <ul className="info-list">
+              <li>
+                <strong>Infrastructure</strong> – internet reliability,
+                electricity, devices, data costs, and ability to study during
+                shutdowns.
+              </li>
+              <li>
+                <strong>Teaching & platform</strong> – assignment clarity,
+                instructor feedback, language accessibility, materials access,
+                and usability.
+              </li>
+              <li>
+                <strong>Safety, support & motivation</strong> – ability to study
+                without fear, family support, mental load, sense of belonging,
+                and intentions to continue next term.
+              </li>
+              <li>
+                <strong>Outcomes</strong> – overall satisfaction and{" "}
+                <strong>persistence</strong> (whether they plan to continue).
+              </li>
+            </ul>
+
             <div className="stat-row">
-              <div className="stat-pill">MIT Emerging Talent · ELO2</div>
-              <div className="stat-pill">Afghan-led research</div>
-              <div className="stat-pill">Online university students</div>
+              <div className="stat-pill">322 students</div>
+              <div className="stat-pill">87.3% inside Afghanistan</div>
+              <a
+                href="https://womanonlineuniversity.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="stat-pill stat-pill--link"
+              >
+                Data partner: Women Online University (WOU)
+              </a>
             </div>
           </div>
 
+          {/* RIGHT CARD – theory, methods, and repo contents */}
           <div className="info-card">
             <p>
-              The GitHub repository contains the full data-science pipeline: from raw
-              responses to cleaned datasets, exploratory analysis, and early models
-              estimating which factors are most strongly linked to satisfaction,
-              persistence, and continuation into the next term.
+              The research links Afghan girls’ lived experience to four
+              well-known frameworks for online learning and persistence:{" "}
+              <strong>Community of Inquiry (CoI)</strong>,{" "}
+              <strong>Self-Determination Theory (SDT)</strong>,{" "}
+              <strong>Tinto’s integration model</strong>, and{" "}
+              <strong>technology acceptance models (TAM/UTAUT)</strong>. Each
+              framework is mapped to concrete survey columns – for example,
+              assignment clarity and instructor feedback for CoI, safety and
+              family support for SDT and Tinto, and platform usability and video
+              loading for TAM/UTAUT.
             </p>
+
             <ul className="info-list">
-              <li>Python notebooks for data cleaning and exploratory analysis.</li>
-              <li>Visualizations of connectivity, time use, mental load, belonging, and support.</li>
-              <li>Initial models to identify risk factors for dropping out versus continuing.</li>
-              <li>Clear documentation to support future Afghan-led research and reuse.</li>
+              <li>
+                <strong>Design:</strong> cross-sectional, anonymous bilingual
+                survey (~25 items) with no names, emails, or direct identifiers.
+              </li>
+              <li>
+                <strong>Pipeline:</strong> raw responses → PII masking →
+                Farsi–English translation → cleaning → analysis notebooks in the{" "}
+                <code>results/</code> folder.
+              </li>
+              <li>
+                <strong>Methods:</strong> descriptive statistics, correlation
+                checks, logistic regression for persistence, simple clustering,
+                and thematic coding of open-ended answers.
+              </li>
+              <li>
+                <strong>Documentation:</strong> research background, theory →
+                variables table, data dictionary, and reproducible notebooks for
+                future Afghan-led work.
+              </li>
             </ul>
+
             <div className="stat-row">
-              <div className="stat-pill">Open-source mindset</div>
-              <div className="stat-pill">Re-usable code</div>
-              <div className="stat-pill">Future-friendly design</div>
+              <div className="stat-pill">CoI · SDT · Tinto · TAM</div>
+              <div className="stat-pill">Reproducible notebooks</div>
+              <div className="stat-pill">MIT-licensed repo</div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

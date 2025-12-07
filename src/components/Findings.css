@@ -4,8 +4,7 @@
 #findings {
   padding: 4rem 8vw 4.5rem;
   color: var(--banner-text-main);
-
-  /* match banner + context + project dark theme */
+  /* dark theme with subtle warm glows */
   background:
     radial-gradient(circle at 0% 0%, rgba(255, 199, 122, 0.05), transparent 55%),
     radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.03), transparent 55%),
@@ -17,14 +16,12 @@
   margin: 0 auto;
 }
 
-/* section header */
-
+/* header styling */
 #findings .section-header {
   max-width: 700px;
   margin: 0 auto 2.6rem;
   text-align: center;
 }
-
 #findings .section-kicker {
   font-size: 0.78rem;
   letter-spacing: 0.24em;
@@ -32,41 +29,34 @@
   color: var(--banner-text-soft);
   margin-bottom: 0.6rem;
 }
-
 #findings .section-title {
   font-size: clamp(1.9rem, 1.3rem + 1.5vw, 2.4rem);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 0.9rem;
 }
-
 #findings .section-subtitle {
   font-size: 0.96rem;
   color: var(--banner-text-soft);
   line-height: 1.9;
 }
 
-/* GRID
-   -------------------------------------------------- */
-
+/* grid layout */
 .findings-grid {
   display: grid;
-  /* 2 columns works much better once we show charts */
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2rem;
   align-items: stretch;
 }
-
-/* Center the last finding-card when the row has only one item */
+/* center the last item on an odd row */
 .findings-grid > .finding-card:last-child:nth-child(odd) {
-  grid-column: 1 / -1; /* span full width */
-  max-width: 550px;     /* optional: keeps it nicely centered */
+  grid-column: 1 / -1;
+  max-width: 550px;
   margin-left: auto;
   margin-right: auto;
 }
-/* CARDS
-   -------------------------------------------------- */
 
+/* card styling */
 .finding-card {
   background: #ffffff;
   border-radius: 26px;
@@ -75,36 +65,26 @@
   border: 1px solid rgba(0, 0, 0, 0.02);
   position: relative;
   overflow: hidden;
-
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
-
   transition: transform 0.22s ease-out, box-shadow 0.22s ease-out,
     border-color 0.22s ease-out;
 }
-
-/* warm soft wash in the top-right corner, like other cards */
 .finding-card::before {
   content: "";
   position: absolute;
   inset: -40% 45% auto auto;
-  background: radial-gradient(
-    130% 180% at 0% 0%,
-    rgba(206, 133, 56, 0.16),
-    transparent 70%
-  );
+  background: radial-gradient(130% 180% at 0% 0%, rgba(206, 133, 56, 0.16), transparent 70%);
   pointer-events: none;
 }
-
 .finding-card:hover {
   transform: translateY(-4px);
   border-color: rgba(206, 133, 56, 0.28);
   box-shadow: 0 26px 72px rgba(0, 0, 0, 0.14);
 }
 
-/* badge in the corner */
-
+/* badge styling */
 .finding-badge {
   position: absolute;
   top: 1.1rem;
@@ -112,11 +92,7 @@
   width: 30px;
   height: 30px;
   border-radius: 999px;
-  background: linear-gradient(
-    135deg,
-    var(--accent-primary-deep),
-    var(--accent-primary)
-  );
+  background: linear-gradient(135deg, var(--accent-primary-deep), var(--accent-primary));
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -126,17 +102,15 @@
   box-shadow: 0 10px 28px rgba(178, 85, 24, 0.55);
 }
 
-/* title + tags */
-
+/* card title and tagline */
 .finding-title {
-  padding-top: 1.4rem; /* to clear the badge */
+  padding-top: 1.4rem;  /* clears space for badge */
   font-size: 1.1rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-bottom: 0.25rem;
   color: #23160e;
 }
-
 .finding-tagline {
   font-size: 0.82rem;
   text-transform: uppercase;
@@ -145,36 +119,32 @@
   margin-bottom: 0.3rem;
 }
 
-/* chart / image wrapper ---------------------------------- */
-
+/* visual wrapper */
 .finding-visual {
   margin-top: 0.3rem;
   margin-bottom: 0.8rem;
   border-radius: 18px;
   overflow: hidden;
-  background: #fdf6ee; /* soft warm background while image loads */
+  background: #fdf6ee;
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.04);
   max-height: 220px;
 }
-
 .finding-visual img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain; /* no cropping, just scale down */
+  object-fit: contain;
 }
 
-/* body text */
-
+/* card body text */
 .finding-card p {
   font-size: 0.95rem;
-  color: #7b6652;   /* warmer brown like project/context cards */
+  color: #7b6652;
   line-height: 1.9;
   margin-bottom: 0.9rem;
 }
 
-/* "coming soon" / note pill (sits at bottom) */
-
+/* note/CTA pill at bottom */
 .coming-soon-pill {
   margin-top: auto;
   align-self: flex-start;
@@ -188,39 +158,35 @@
   background: rgba(255, 245, 234, 0.96);
 }
 
-/* RESPONSIVE
-   -------------------------------------------------- */
+/* find-footer styles */
+.findings-footer {
+  margin-top: 2.4rem;
+  text-align: center;
+  color: var(--banner-text-soft);
+}
+.findings-footer-note {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 0.6rem;
+}
+.findings-footer-link a {
+  color: var(--accent-primary-deep);
+  text-decoration: underline;
+}
 
+/* responsive layout */
 @media (max-width: 1024px) {
   .findings-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
-  .finding-visual {
-    max-height: 200px;
-  }
+  .finding-visual { max-height: 200px; }
 }
-
 @media (max-width: 720px) {
-  #findings {
-    padding-inline: 6vw;
-  }
-
-  .findings-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .finding-visual {
-    max-height: 220px;
-  }
+  #findings { padding-inline: 6vw; }
+  .findings-grid { grid-template-columns: 1fr; }
+  .finding-visual { max-height: 220px; }
 }
-
 @media (max-width: 600px) {
-  #findings {
-    padding-inline: 1.6rem;
-  }
-
-  .finding-card {
-    padding: 1.7rem 1.7rem 1.9rem;
-  }
+  #findings { padding-inline: 1.6rem; }
+  .finding-card { padding: 1.7rem 1.7rem 1.9rem; }
 }
